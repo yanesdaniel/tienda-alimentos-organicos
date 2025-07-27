@@ -1,0 +1,37 @@
+classDiagram
+    class ProductoOrganico {
+        - String nombre
+        - String tipo
+        - double precio
+        + calcularPrecioVenta() double
+        + aplicarDescuento() double
+        + toString() String
+    }
+
+    class Fruta {
+        - String tipoFruta
+        + calcularPrecioVenta() double
+        + aplicarDescuento() double
+    }
+
+    class Verdura {
+        - String tipoVerdura
+        + calcularPrecioVenta() double
+        + aplicarDescuento() double
+    }
+
+    class TiendaOrganica {
+        - List~ProductoOrganico~ inventario
+        + agregarProducto(ProductoOrganico)
+        + eliminarProducto(String)
+        + mostrarInventario()
+    }
+
+    class Main {
+        + main(String[] args)
+    }
+
+    ProductoOrganico <|-- Fruta
+    ProductoOrganico <|-- Verdura
+    Main --> TiendaOrganica
+    TiendaOrganica --> ProductoOrganico
